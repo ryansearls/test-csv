@@ -1,4 +1,4 @@
-<%flass[:notice]%>
+<%= flash[:notice] %>
 <table>
   <thead>
     <tr>
@@ -8,13 +8,12 @@
       <th>Minutes Exercised</th>
       <th>Hours of Sleep</th>
       <th>Calories Burned</th>
-      </tr>
     </tr>
   </thead>
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.user%></td>
+        <td><%= user.user %></td>
         <td><%= user.steps %></td>
         <td><%= user.distance %></td>
         <td><%= user.exercise %></td>
@@ -26,10 +25,9 @@
 </table>
 <div>
 
-<h4>Import the data</h4>
-  <% form_tag import_users_path, multipart: true do %>
-    <% file_field_tag :file %>
-    <% submit_tag "Import CSV" %>
-    <% end %>
+<h4>Import that data!</h4>
+  <%= form_tag import_users_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import CSV" %>
+  <% end %>
 </div>
-
